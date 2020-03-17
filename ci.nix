@@ -30,27 +30,27 @@ in
                 (ghc-extra-packages.ghc865.remote-iserv.components.exes).remote-iserv;
 
       };
-      x86_64-darwin = {
-            hello = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; }));
-                (haskell-nix.hackage-package { name = "hello"; version = "1.0.0.2";}).components.exes.hello;
-            x86_64-pc-mingw32-hello = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; crossSystem.config = "x86_64-pc-mingw32"; }));
-                (haskell-nix.hackage-package { name = "hello"; version = "1.0.0.2";}).components.exes.hello;
+      # x86_64-darwin = {
+      #       hello = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; }));
+      #           (haskell-nix.hackage-package { name = "hello"; version = "1.0.0.2";}).components.exes.hello;
+      #       x86_64-pc-mingw32-hello = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; crossSystem.config = "x86_64-pc-mingw32"; }));
+      #           (haskell-nix.hackage-package { name = "hello"; version = "1.0.0.2";}).components.exes.hello;
 
-            iserv-proxy = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; }));
-                (ghc-extra-packages.ghc865.iserv-proxy.components.exes).iserv-proxy;
+      #       iserv-proxy = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; }));
+      #           (ghc-extra-packages.ghc865.iserv-proxy.components.exes).iserv-proxy;
 
-            x86_64-pc-mingw32-iserv-proxy = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; crossSystem.config = "x86_64-pc-mingw32"; }));
-                (buildPackages.ghc-extra-packages.ghc865.iserv-proxy.components.exes).iserv-proxy;
+      #       x86_64-pc-mingw32-iserv-proxy = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; crossSystem.config = "x86_64-pc-mingw32"; }));
+      #           (buildPackages.ghc-extra-packages.ghc865.iserv-proxy.components.exes).iserv-proxy;
 
-            x86_64-pc-mingw32-remote-iserv = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; crossSystem.config = "x86_64-pc-mingw32"; }));
-                (ghc-extra-packages.ghc865.remote-iserv.components.exes).remote-iserv;
+      #       x86_64-pc-mingw32-remote-iserv = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin"; crossSystem.config = "x86_64-pc-mingw32"; }));
+      #           (ghc-extra-packages.ghc865.remote-iserv.components.exes).remote-iserv;
 
-      };
+      # };
       haskell-nix.compiler = {
         x86_64-linux = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-linux"; }));
             haskell-nix.compiler;
-        x86_64-darwin = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin";}));
-            haskell-nix.compiler;
+        # x86_64-darwin = with (import nixpkgsSrc (haskellNixArgs // { system = "x86_64-darwin";}));
+        #     haskell-nix.compiler;
       };
       tests = {
         x86_64-linux = (import ./test { nixpkgs = nixpkgsSrc; nixpkgsArgs = { system = "x86_64-linux"; }; });
